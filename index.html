@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2026">
+  <meta name="description" content="2026 国庆杭州/温州出发，武汉—西安—兰州自驾路线决策与行程工具。">
+  <title>山河向西 · 2026 国庆自驾路线</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">↗</span>
+        <span><b>山河向西</b><small>2026 国庆自驾决策页</small></span>
+      </a>
+      <nav class="top-nav" aria-label="页面导航">
+        <a href="#decision">路线判断</a>
+        <a href="#itinerary">7 日行程</a>
+        <a href="#budget">费用估算</a>
+        <a href="#sources">核验来源</a>
+      </nav>
+      <button class="outline-btn print-btn" type="button" id="printPage">打印 / PDF</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">2026.10.01 → 2026.10.07 · 小客车免费窗口</p>
+        <h1>把 7 天，<br><em>开成一条有余量的路。</em></h1>
+        <p class="hero-lede">杭州 / 温州出发，串起武汉的江、 西安的城、 兰州的河。先看清免费窗口，再决定要不要把三座城塞进同一张假期地图。</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#decision">先做路线判断 <span>↓</span></a>
+          <a class="text-link" href="#itinerary">直接看 7 日版本 →</a>
+        </div>
+        <div class="hero-note"><span class="status-dot"></span><strong>先说结论：</strong>7 天三城往返非常激进。杭州比温州少约 600–700 km 的往返负担，但安全备选仍建议删减一城或延长到 9–10 天。</div>
+      </div>
+      <div class="hero-art" aria-label="原创路线示意图">
+        <div class="sun"></div><div class="moon"></div>
+        <svg viewBox="0 0 620 500" role="img" aria-label="杭州、武汉、西安、兰州路线节点示意">
+          <path class="mountain back" d="M0 320 110 220 190 288 282 150 390 282 486 182 620 310V500H0Z"/>
+          <path class="mountain front" d="M0 382 130 275 214 345 315 220 430 350 520 258 620 360V500H0Z"/>
+          <path class="river" d="M-10 390 C110 330 170 440 275 378 S430 320 640 370"/>
+          <path class="route-line" d="M92 382 C192 356 255 302 330 270 S460 235 525 166"/>
+          <g class="map-node node-hz"><circle cx="92" cy="382" r="9"/><text x="74" y="420">杭州</text></g>
+          <g class="map-node"><circle cx="330" cy="270" r="9"/><text x="309" y="306">武汉</text></g>
+          <g class="map-node"><circle cx="430" cy="235" r="9"/><text x="407" y="222">西安</text></g>
+          <g class="map-node node-lz"><circle cx="525" cy="166" r="9"/><text x="500" y="143">兰州</text></g>
+          <text class="map-label" x="18" y="56">WESTBOUND / 01</text>
+        </svg>
+        <div class="art-caption">原创 SVG 路线视觉 · 非导航比例图</div>
+      </div>
+    </section>
+
+    <section class="policy-strip section-shell" id="policy">
+      <div class="policy-main"><span class="policy-icon">⌁</span><div><p class="eyebrow">已核验 · 2026-09-28</p><h2>免费窗口：10 月 1 日 00:00 — 10 月 7 日 24:00</h2><p>默认按 7 座及以下、非营运小型客车理解；封闭式高速以<strong>驶离出口收费车道的时间</strong>为准。</p></div></div>
+      <div class="countdown-card"><span id="windowStatus">距离窗口开始</span><strong id="countdown">—</strong><small>页面按北京时间计算</small></div>
+    </section>
+
+    <section class="section-shell" id="decision">
+      <div class="section-heading"><div><p class="eyebrow">01 / ROUTE DECISION</p><h2>先选出发地，再面对真实代价</h2></div><div class="toggle" role="group" aria-label="出发地选择"><button class="toggle-btn is-active" data-origin="hangzhou">杭州出发</button><button class="toggle-btn" data-origin="wenzhou">温州出发</button></div></div>
+      <div class="decision-grid">
+        <article class="decision-card selected" id="originCard"><div class="card-kicker">推荐 · <span id="originName">杭州</span></div><h3 id="originHeadline">更接近“还能玩”的版本</h3><p id="originReason">杭州到武汉的西进段更短，回程压力也更低；即便如此，7 天仍需要把城市游玩压缩成半天到一天。</p><div class="metric-row"><div><strong id="originDistance">约 3,850</strong><span>km 往返估算</span></div><div><strong id="originDrive">约 48–55</strong><span>小时驾驶估算</span></div><div><strong id="originGap">省约 600–700</strong><span>km / 温州方案</span></div></div></article>
+        <article class="compare-card"><div class="compare-head"><span>现实度对比</span><span>估算 · 非实时导航</span></div><div class="bar-row"><span>杭州</span><div class="bar"><i style="width:74%"></i></div><b>较优</b></div><div class="bar-row"><span>温州</span><div class="bar"><i style="width:57%"></i></div><b>更激进</b></div><p class="compare-foot">综合往返里程、城市停留余量与返程风险，页面默认杭州作为主路线。温州适合愿意删减一城或延长天数的版本。</p></article>
+      </div>
+      <div class="warning-callout"><span>!</span><div><strong>安全判断</strong><p>不要为了“免费”在 10 月 7 日晚间疲劳赶路。免费政策是费用规则，不是安全许可；若无法在窗口结束前安全驶离，应优先休息、就近驶离或接受部分路段收费。</p></div></div>
+    </section>
+
+    <section class="route-section section-shell">
+      <div class="route-header"><div><p class="eyebrow">THE WESTBOUND LINE</p><h2>从钱塘江，到黄河上游</h2></div><p class="route-summary">杭州 → 武汉 → 西安 → 兰州 → 杭州<br><span>约 3,850 km · 48–55 h 驾驶（含节假日拥堵缓冲）</span></p></div>
+      <div class="route-map" aria-label="城市节点路线图"><div class="route-track"></div><div class="route-city is-origin"><span class="city-pin">01</span><strong id="mapOrigin">杭州</strong><small>出发 / 回程</small></div><div class="route-city city-wuhan"><span class="city-pin">02</span><strong>武汉</strong><small>江城夜色</small></div><div class="route-city city-xian"><span class="city-pin">03</span><strong>西安</strong><small>城墙与古都</small></div><div class="route-city city-lanzhou"><span class="city-pin">04</span><strong>兰州</strong><small>黄河与夜市</small></div></div>
+    </section>
+
+    <section class="section-shell itinerary-section" id="itinerary">
+      <div class="section-heading"><div><p class="eyebrow">02 / 7-DAY ITINERARY</p><h2>用户要求版本 · 但请把它当作压力测试</h2></div><span class="tag tag-alert">激进版 · 三城全覆盖</span></div>
+      <div class="itinerary-note"><strong>现实性说明：</strong>三城往返的公路时间约占整段行程大半。以下安排可以“完成”，但不适合带老人、儿童或不习惯长途夜驾的团队；安全备选见页面下方。</div>
+      <div class="day-list" id="dayList"></div>
+    </section>
+
+    <section class="section-shell safer-section" id="safer">
+      <div class="safer-copy"><p class="eyebrow">03 / SAFER OPTION</p><h2>更安全的备选：删一城，才有旅行感</h2><p>如果假期只能锁定 7 天，建议保留武汉 + 西安，把兰州放到下一次西北环线；或者改成 9–10 天，并把返程拆成两天。这样才有机会在白天驾驶、每 2 小时休息一次，也能留出天气与拥堵缓冲。</p><div class="safer-pills"><span>方案 A · 7 天</span><strong>杭州—武汉—西安—杭州</strong><em>约 2,900 km / 35–40 h</em></div><div class="safer-pills"><span>方案 B · 9–10 天</span><strong>杭州—武汉—西安—兰州—杭州</strong><em>把返程拆成 2 天，降低疲劳风险</em></div></div>
+      <div class="safer-art"><span class="big-number">7</span><span class="big-unit">天</span><p>不是必须<br>塞满的容器</p><div class="road-stroke"></div></div>
+    </section>
+
+    <section class="section-shell tools-section" id="budget">
+      <div class="section-heading"><div><p class="eyebrow">04 / TRIP TOOLS</p><h2>把预算和完成度，变成可操作的数字</h2></div></div>
+      <div class="tools-grid">
+        <article class="tool-card cost-card"><div class="tool-card-head"><div><span class="card-kicker">费用估算</span><h3>能源成本</h3></div><div class="segmented"><button class="energy-btn is-active" data-energy="fuel">油车</button><button class="energy-btn" data-energy="ev">电车</button></div></div><div class="input-row"><label>能耗 <input id="consumption" type="number" min="1" step="0.1" value="8.2"><span id="consumptionUnit">L / 100km</span></label><label>单价 <input id="unitPrice" type="number" min="0" step="0.01" value="8.2"><span id="priceUnit">元 / L</span></label></div><div class="cost-result"><span>往返能源成本</span><strong id="costTotal">¥2,583</strong><small>未含停车、住宿、餐饮与可能的收费路段</small></div></article>
+        <article class="tool-card progress-card"><div class="tool-card-head"><div><span class="card-kicker">出发前清单</span><h3>完成你的安全准备</h3></div><strong id="progressText">0 / 8</strong></div><div class="check-list" id="checkList"></div><div class="progress-bar"><i id="progressBar"></i></div></article>
+      </div>
+    </section>
+
+    <section class="section-shell sources-section" id="sources">
+      <div class="section-heading"><div><p class="eyebrow">05 / SOURCES & ASSUMPTIONS</p><h2>规则来源与使用边界</h2></div><span class="verified">✓ 已核验 2026-09-28</span></div>
+      <div class="source-grid"><div class="source-list"><a href="https://www.gov.cn/zhengce/zhengceku/202511/content_7047091.htm" target="_blank" rel="noreferrer"><span>国务院办公厅</span><strong>2026 年部分节假日安排通知 →</strong><small>确认 10 月 1 日（周四）至 7 日（周三）放假调休，共 7 天。</small></a><a href="https://www.mot.gov.cn/xinwen/jiaotongyaowen/202609/t20260917_4224441.html" target="_blank" rel="noreferrer"><span>交通运输部</span><strong>中秋国庆假期“一段一策”加强繁忙路段疏堵保畅 →</strong><small>确认免费时段、驶离出口计时口径与“不要等、不要赶”安全提示。</small></a><a href="https://www.mot.gov.cn/zhuanti/2023chunyun/huiyintai/202301/t20230109_3735994.html" target="_blank" rel="noreferrer"><span>交通运输部政策解读</span><strong>重大节假日小型客车具体免费时段如何计算？ →</strong><small>确认 7 座及以下小型客车定义；8 座及以上、货车及客货两用车不在范围内。</small></a></div><div class="assumption-card"><h3>页面假设</h3><ul><li>默认 7 座及以下非营运小客车，10 月 1 日出发、10 月 7 日返回。</li><li>里程与驾驶时间为路线级估算，来自城市间常见高速路径；节假日拥堵、天气、施工、临时管制会显著改变结果。</li><li>页面不接入收费地图 API，也不提供实时路况；出发前请用官方路况渠道和导航复核。</li><li>所有插画为本页原创 SVG，未使用外部景点图片。</li></ul></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div><b>山河向西</b><span>一页式行程决策工具 · 资料核验日：2026-09-28</span></div><button class="outline-btn" type="button" id="backTop">回到顶部 ↑</button></footer>
+  <script src="app.js"></script>
+</body>
+</html>
