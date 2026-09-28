@@ -9,9 +9,9 @@ const days = [
   {n:'D4', title:'西安城市日', meta:'城市内移动 · 不安排长途驾驶', body:'城墙骑行 / 大唐不夜城 / 陕西历史博物馆三选二；兵马俑若要去，需把当天节奏再放慢。', play:'古都夜游，保留体力给次日西进。', rest:'建议：景点之间减少跨城折返；下午 16:00 后不再安排远距离移动。', risk:'国庆热门景区客流大，预约、安检、步行距离都会放大时间成本。'},
   {n:'D5', title:'西安 → 兰州', meta:'约 630 km · 7.5–9 h 估算', body:'06:30 出发，途经陇西、定西方向；山区与长下坡较多，预计 16:00–18:00 抵达兰州。', play:'黄河风情线、正宁路 / 大众巷夜食。', rest:'建议：进甘肃后关注风沙与降温，服务区补水并检查胎压。', risk:'兰州进城道路与停车位紧张，住宿尽量选择带车位、靠近主路的位置。'},
   {n:'D6', title:'兰州半日 → 返程起步', meta:'兰州 → 西安 / 宝鸡方向 · 约 500–650 km', body:'清晨黄河边短走后，09:00 前离开兰州，尽量把返程第一段推进到宝鸡或西安周边；不要为了“多玩一处”拖到中午。', play:'黄河母亲雕像 / 白塔山二选一。', rest:'建议：把当天视为返程日，至少 1 次 60 分钟长休息，夜间不硬撑。', risk:'若 10 月 6 日下午才离开兰州，D7 回杭州几乎必然变成高风险长途。'},
-  {n:'D7', title:'西安 / 宝鸡 → 杭州', meta:'约 1,200–1,450 km · 14–18 h 估算', body:'这是整个版本的硬伤：即使凌晨出发，叠加节假日返程流量，也不应把“10 月 7 日 24:00 前免费”当成必须达成的目标。', play:'无。把安全抵达当作唯一任务。', rest:'建议：拆成两天，或在 10 月 6 日提前推进到襄阳 / 武汉附近，再分段返杭。', risk:'强烈不建议单驾驶员完成。若疲劳或天气不佳，主动接受部分收费并住宿。'}
+  {n:'D7', title:'西安 / 宝鸡 → 杭州', meta:'约 1,200–1,450 km · 14–18 h 估算', body:'这是整个版本的硬伤：即使凌晨出发，叠加节假日返程流量，也不应把尚未由 2026 节前公告确认的收费优惠当成必须达成的目标。', play:'无。把安全抵达当成唯一任务。', rest:'建议：拆成两天，或在 10 月 6 日提前推进到襄阳 / 武汉附近，再分段返杭。', risk:'强烈不建议单驾驶员完成。若疲劳或天气不佳，主动接受部分收费并住宿。'}
 ];
-const checklist = ['确认车辆座位数与行驶证性质','检查胎压、雨刮、灯光与备胎','下载离线地图 / 备好充电或加油卡','每 2 小时安排一次休息','提前预约热门景点与住宿','准备儿童 / 老人常用药和饮水','确认 D6 返程推进点','不以免费窗口替代安全决策'];
+const checklist = ['确认车辆座位数与行驶证性质','检查胎压、雨刮、灯光与备胎','下载离线地图 / 备好充电或加油卡','每 2 小时安排一次休息','提前预约热门景点与住宿','准备儿童 / 老人常用药和饮水','确认 D6 返程推进点','不以收费优惠替代安全决策'];
 let origin = 'hangzhou';
 let energy = 'fuel';
 const $ = (selector) => document.querySelector(selector);
@@ -41,8 +41,8 @@ function renderChecklist(){
   const saved = JSON.parse(localStorage.getItem('roadtrip-checks') || '[]'); $('#checkList').innerHTML = checklist.map((item, index) => `<label class="check-item"><input type="checkbox" ${saved[index] ? 'checked' : ''}><span>${item}</span></label>`).join(''); document.querySelectorAll('#checkList input').forEach(input => input.addEventListener('change', updateChecklist)); updateChecklist();
 }
 function updateCountdown(){
-  const now = new Date(); const start = new Date('2026-10-01T00:00:00+08:00'); const end = new Date('2026-10-08T00:00:00+08:00'); let target = start; let label = '距离窗口开始';
-  if(now >= start && now < end){ target = end; label = '距离窗口结束'; } else if(now >= end){ $('#windowStatus').textContent = '窗口已结束'; $('#countdown').textContent = '请以最新政策为准'; return; }
+  const now = new Date(); const start = new Date('2026-10-01T00:00:00+08:00'); const end = new Date('2026-10-08T00:00:00+08:00'); let target = start; let label = '距离假期开始';
+  if(now >= start && now < end){ target = end; label = '距离假期结束'; } else if(now >= end){ $('#windowStatus').textContent = '假期已结束'; $('#countdown').textContent = '请以最新公告为准'; return; }
   const diff = Math.max(0, target - now); const d = Math.floor(diff / 86400000); const h = Math.floor(diff % 86400000 / 3600000); const m = Math.floor(diff % 3600000 / 60000); $('#windowStatus').textContent = label; $('#countdown').textContent = d ? `${d}天 ${h}小时` : `${h}小时 ${m}分`;
 }
 document.querySelectorAll('.toggle-btn').forEach(btn => btn.addEventListener('click', () => updateOrigin(btn.dataset.origin)));
